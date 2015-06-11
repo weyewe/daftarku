@@ -1,0 +1,40 @@
+
+
+<div class="row" >
+    <div class="col-sm-9" >
+        
+
+
+        <h2>
+        	<%= link_to @object.title , show_article_url(@object.slug) %>
+        </h2>
+
+        <%= image_tag @object.medium_image_url %>
+        <br />
+        <p><%= @object.description %></p>
+
+
+
+        <% counter = 1 %> 
+
+        <% @object.reimburse_details.each do |reimburse_detail| %>
+ 
+        	<h3>
+        		<%= "#{counter}. #{reimburse_detail.title}"%> 
+        	</h3>
+
+        	<p>
+        		<%= image_tag reimburse_detail.medium_image_url  %> 
+        	</p>
+
+        	<p>
+        		<%= reimburse_detail.description %>
+        	</p>
+
+       	<% end %> 
+    </div>
+
+    <div class="col-sm-3">
+    		This is the sidebar
+    </div>
+</div>

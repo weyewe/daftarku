@@ -7,6 +7,7 @@ Ticketie::Application.routes.draw do
 
   get 'dashboard' => 'reimburse_associations#index'
   get 'my_reimburse' => 'reimburses#index' 
+  get 'artikel/:id' => 'home#show_article', :as => :show_article 
 
   get 'admin' => 'home#index'
 

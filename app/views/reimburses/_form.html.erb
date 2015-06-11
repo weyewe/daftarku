@@ -35,6 +35,17 @@
 			</div>
 
 			<div class="form-group">
+				<%= f.label :description , :class => "col-sm-3 control-label" do %> 
+					Penjelasan <span class="symbol required"></span>
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.text_area :description , :class => "form-control", :placeholder => "Penjelasan tambahan" %>
+				</div>
+				 
+			</div>
+
+			<div class="form-group">
 				<%= f.label :original_main_image_url , 
 							:class => "col-sm-3 control-label"  do %> 
 					Gambar penunjang <span class="symbol required"></span>
