@@ -1,0 +1,47 @@
+
+/* All ajax requests are sending authenticty token*/
+$(document).ajaxSend(function(event, request, settings) {
+  if (typeof(AUTH_TOKEN) == "undefined") return;
+  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
+  settings.data = settings.data || "";
+  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+});
+
+// 
+
+$(document).ready(function() {
+
+	$(".img-link").on("click", function(e){
+		// console.log("I am clicked");
+		e.preventDefault();
+
+	});
+
+
+	$(".user-pic").on("click", function(){
+		// console.log("I am in the user-pic");
+		// console.log("I am clicked");
+		var $this  = $(this);
+		var siblings  = $this.siblings(".hidden");
+		var image_url =  siblings[0].innerText  ;
+		// var image_url = $this.attr('src');
+		// console.log(" getting the parents");
+		// var first_media_parent  = $this.parents(".media");
+		// console.log( first_media_parent ) ;
+
+		// var children = $(first_media_parent).children();
+		
+
+		// console.log( children ) ;
+
+
+		
+
+		$("#myModal .modal-content img").attr( 'src', image_url );
+
+		$('#myModal').modal(); 
+	});
+
+ 
+	
+});

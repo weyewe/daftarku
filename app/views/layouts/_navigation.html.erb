@@ -1,0 +1,73 @@
+       <!-- start: HEADER -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <!-- start: TOP NAVIGATION CONTAINER -->
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- start: RESPONSIVE MENU TOGGLER -->
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="clip-list-2"></span>
+                    </button>
+                    <!-- end: RESPONSIVE MENU TOGGLER -->
+                    <!-- start: LOGO -->
+                    <a class="navbar-brand" href="index.html">
+                        Reimburse<i class="clip-clip"></i>App
+                    </a>
+                    <!-- end: LOGO -->
+                </div>
+
+                <% if current_user %>
+                    <div class="navbar-tools">
+                        
+                        <ul class="nav navbar-right">
+                
+       
+                            <%= render :partial => "layouts/sign_in_user" %>
+
+                            <li>
+                                <a class="sb-toggle" href="#">
+                                    <%= icon('outdent') %>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                <% end %> 
+
+
+                <!-- start: HORIZONTAL MENU -->
+
+
+                <div class="horizontal-menu navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <% if not current_user %>
+
+                            <li class="<%= extract_active_navigation('home') %>">
+                                <%= link_to "Home", root_url %>
+                            </li>
+
+                            <li class="<%= extract_active_navigation('registration') %>">
+                                <%= link_to "Register", new_user_registration_url  %>
+                            </li>
+
+                            <li class="<%= extract_active_navigation('login') %>">
+                                <%= link_to "Login", new_user_session_url  %>
+                            </li>
+                        <% else %>
+                            <li class="<%= extract_active_navigation('dashboard') %>">
+                                <%= link_to "Reimburse History", dashboard_url  %>
+                            </li>
+
+                            <li class="<%= extract_active_navigation('my_reimburse') %>">
+                                <%= link_to "My Reimburse", my_reimburse_url  %>
+                            </li>
+                        <% end %>  
+
+
+
+
+                    </ul>
+                </div>
+                <!-- end: HORIZONTAL MENU -->
+            </div>
+            <!-- end: TOP NAVIGATION CONTAINER -->
+        </div>

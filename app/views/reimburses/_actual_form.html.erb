@@ -1,0 +1,31 @@
+
+<%= form_for @object, :html => {:class => "smart-wizard form-horizontal" , :role => "form"}  do |f| %>
+	<div id="wizard" class="swMain">
+		<div id="step-1">
+			<h2 class="StepTitle">Buat Reimburse Baru</h2>
+			<div class="form-group">
+				<%= f.label :title , :class => "col-sm-3 control-label" do %> 
+					Title <span class="symbol required"></span>
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.text_field :title , :class => "form-control", :placeholder => "Judul reimburse" %>
+				</div>
+				 
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-8">
+
+					<%= f.button :submit, :class=> "btn btn-blue next-step btn-block" do %>
+					  Save <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+ 
+				</div>
+			</div>
+
+		</div>
+		  
+	</div>
+<% end %> 
+

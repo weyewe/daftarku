@@ -1,0 +1,108 @@
+<% if object.errors.size != 0 %> 
+<div class="alert alert-danger" role="alert" style="margin-top:10px;">
+		<% object.errors.full_messages.each  do |x| %>
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			  <span class="sr-only">Error:</span>
+			  <%= x %> 
+			  <br />
+		<% end %> 
+</div> 
+<% end %> 
+
+<%= form_for [parent, object], :html => {:class => "smart-wizard form-horizontal" ,  
+								:id => "upload-reimburse-form",
+								:role => "form"}   do |f| %>
+
+								<%= transloadit :awesome_willy %>
+
+
+	<div id="wizard" class="swMain">
+		<div id="step-1">
+			<h2 class="StepTitle">Detail Reimburse</h2>
+			<div class="form-group">
+				<%= f.label :title , :class => "col-sm-3 control-label" do %> 
+					Title <span class="symbol required"></span>
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.text_field :title , :class => "form-control", :placeholder => "Judul reimburse detail" %>
+				</div>
+				 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :description , :class => "col-sm-3 control-label" do %> 
+					Deskripsi <span class="symbol required"></span>
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.text_field :description , :class => "form-control", 
+					:placeholder => "Deskripsi reimburse" %>
+				</div>
+				 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :amount , :class => "col-sm-3 control-label" do %> 
+					Biaya <span class="symbol required"></span>
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.text_field :amount , :class => "form-control", 
+					:placeholder => "Biaya expense" %>
+				</div>
+				 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :original_main_image_url , 
+							:class => "col-sm-3 control-label"  do %> 
+					Gambar penunjang <span class="symbol required"></span>
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.file_field :original_main_image_url , 
+							:class => "form-control transloadit-input", 
+							:placeholder => "Judul reimburse" %>
+				</div>
+				 
+			</div>
+
+			<% if object.persisted? %>
+			<div class="form-group">
+				<%= f.label :medium_image_url , 
+							:class => "col-sm-3 control-label"  do %> 
+					 
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%#= f.file_field :original_main_image_url , 
+							:class => "form-control transloadit-input", 
+							:placeholder => "Judul reimburse" %>
+					<%= image_tag object.medium_image_url %>
+				</div>
+				 
+			</div>
+			<% end %> 
+
+			<div class="form-group">
+
+		
+
+	
+
+				<div class="col-sm-2 col-sm-offset-8">
+ 
+ 
+					<%= f.button :submit, :class=> "btn btn-blue next-step btn-block" do %>
+					  Save <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+ 
+				</div>
+			</div>
+
+		</div>
+		  
+	</div>
+<% end %> 
+

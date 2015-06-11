@@ -1,0 +1,41 @@
+                        <li class="dropdown current-user">
+                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+                                <%= image_tag 'avatar-1-small.jpg', :class => "circle-img" %>
+                                <span class="username">
+                                    <%= current_user.email %>
+                                </span>
+                                <i class="clip-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="pages_user_profile.html">
+                                        <i class="clip-user-2"></i>
+                                        &nbsp;My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pages_calendar.html">
+                                        <i class="clip-calendar"></i>
+                                        &nbsp;My Calendar
+                                    </a>
+ 
+                                <li class="divider"></li>
+               
+                                <li>
+
+
+                                <%= link_to  destroy_user_session_url do  %>
+                                    <i class="clip-exit"></i>
+                                            &nbsp;Log Out
+                                <% end %> 
+                             
+
+                <!--                     
+
+                                    <a href="login_example1.html">
+                                        <i class="clip-exit"></i>
+                                        &nbsp;Log Out
+                                    </a> -->
+                                </li>
+                            </ul>
+                        </li>

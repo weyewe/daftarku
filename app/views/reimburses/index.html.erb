@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row space12">
+            <ul class="mini-stats col-sm-12">
+                <li class="col-sm-3 mobile-one-fourth">
+                    <div class="values">
+                        <strong>40</strong>
+                         Reimburses
+                    </div>
+                </li>
+                <li class="col-sm-3 mobile-one-fourth">
+         
+                    <div class="values">
+                        <strong>25</strong>
+                        Submitted
+                    </div>
+                </li>
+                <li class="col-sm-3 mobile-one-fourth">
+
+                    <div class="values">
+                        <strong>13</strong>
+                        Pending
+                    </div>
+                </li>
+                <li class="col-sm-3 mobile-one-fourth">
+
+                    <div class="values">
+                        <strong>4</strong>
+                        Confirmed
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+	<div class="col-sm-3 center-block" style="text-align:center;" >
+
+        <%= link_to new_reimburse_url ,  :class => "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            New Reimburse
+        <% end %>
+<!-- 		<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			New Reimburse
+		</button> -->
+		<hr />
+	</div>
+
+
+	<div class="col-sm-9">
+        <% @objects.each do |object| %>
+            <%= render :partial => "element" , :locals => {
+                :object => object
+            }%>
+        <% end %>
+		<%#= render :partial => "element" %>
+		<%#= render :partial => "element" %>
+		<%#= render :partial => "element" %>
+	</div>
+
+
+</div>
+
+<!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="myModal" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+    <div class="modal-content">
+      <%= image_tag 'http://repayasia.s3.amazonaws.com/2c/ea28e0101111e597bd87db6e80de1c/DSC_0354.jpg' %>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="myModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body" style='text-align:center;'>
+        <%= image_tag 'http://repayasia.s3.amazonaws.com/2c/ea28e0101111e597bd87db6e80de1c/DSC_0354.jpg' , :style => "width: 100%;" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+      </div>
+    </div>
+  </div>
+</div>
