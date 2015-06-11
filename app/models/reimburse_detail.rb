@@ -1,14 +1,15 @@
 class ReimburseDetail < ActiveRecord::Base
-  
+  extend FriendlyId
+  friendly_id :title, use: :slugged
   validates_presence_of :title 
   validates_presence_of :reimburse_id 
-  validates_presence_of :amount
+  # validates_presence_of :amount
    
   belongs_to :reimburse 
   has_many :comments
   
 
-  validate :valid_amount 
+  # validate :valid_amount 
 
   def valid_amount 
     return if not amount.present?
@@ -44,6 +45,7 @@ class ReimburseDetail < ActiveRecord::Base
     new_object.description            =   params[:description]
     new_object.transaction_datetime   =   params[:transaction_datetime]
 
+    new_object.website_url   =   params[:website_url]
     new_object.thumb_image_url       =   params[:thumb_image_url]
     new_object.medium_image_url   =   params[:medium_image_url] 
     new_object.optimized_image_url   =   params[:optimized_image_url] 
@@ -76,6 +78,7 @@ class ReimburseDetail < ActiveRecord::Base
     self.description            =   params[:description]
     self.transaction_datetime   =   params[:transaction_datetime] 
 
+    self.website_url   =   params[:website_url]
     self.thumb_image_url       =   params[:thumb_image_url]
     self.medium_image_url   =   params[:medium_image_url] 
     self.optimized_image_url   =   params[:optimized_image_url] 

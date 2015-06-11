@@ -2,7 +2,7 @@ class ReimburseDetailsController < ApplicationController
 	include Transloadit::Rails::ParamsDecoder
 
 	def index
-		@parent_object = Reimburse.find_by_id params[:reimburse_id]
+		@parent_object = Reimburse.friendly.find params[:reimburse_id]
 
 		if not belongs_to_current_user?( @parent_object )  
 			redirect_to reimburses_url 
@@ -14,7 +14,7 @@ class ReimburseDetailsController < ApplicationController
 	end
 
 	def new
-		@parent  = Reimburse.find_by_id params[:reimburse_id]
+		@parent  = Reimburse.friendly.find params[:reimburse_id]
 		@object = ReimburseDetail.new 
 		@object.reimburse_id = @parent.id 
 	end
@@ -25,7 +25,7 @@ class ReimburseDetailsController < ApplicationController
 
 	def create
 		puts "We are inside the create of reimburse_deails\n"*10
-		@parent = Reimburse.find_by_id params[:reimburse_id]
+		@parent = Reimburse.friendly.find params[:reimburse_id]
 
 		if not belongs_to_current_user?( @parent )
 			redirect_to reimburses_url 
@@ -58,20 +58,20 @@ class ReimburseDetailsController < ApplicationController
 	end
 
 	def edit
-		@parent = Reimburse.find_by_id params[:reimburse_id]
-		@object = ReimburseDetail.find_by_id params[:id]
+		@parent = Reimburse.friendly.find params[:reimburse_id]
+		@object = ReimburseDetail.friendly.find params[:id]
 
 	end
 
 	def update
-		@parent = Reimburse.find_by_id params[:reimburse_id]
+		@parent = Reimburse.friendly.find params[:reimburse_id]
 
 		if not belongs_to_current_user?( @parent )
 			redirect_to reimburses_url 
 			return 
 		end
 		
-		@object  = ReimburseDetail.find_by_id params[:id] 
+		@object  = ReimburseDetail.friendly.find params[:id] 
 
 		if params[:transloadit] and 
 			params[:transloadit][:results]['thumb'].present? and

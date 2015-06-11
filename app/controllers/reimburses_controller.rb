@@ -41,12 +41,12 @@ class ReimbursesController < ApplicationController
 	end
 
 	def edit
-		@object = Reimburse.find_by_id params[:id]
+		@object = Reimburse.friendly.find params[:id]
 
 	end
 
 	def update
-		@object  = Reimburse.find_by_id params[:id]
+		@object  = Reimburse.friendly.find params[:id]
 
 		if params[:transloadit] and 
 			params[:transloadit][:results]['thumb'].present? and

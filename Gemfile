@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'ansi'
 gem 'rpush'
 gem "figaro"
+gem 'friendly_id', '~> 5.1.0' 
 # gem "font-awesome-rails"
 
 gem 'font-awesome-sass', '~> 4.3.0'

@@ -1,4 +1,7 @@
 class Reimburse < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   validates_presence_of :title 
   validates_presence_of :user_id
   validate :user_must_be_valid 

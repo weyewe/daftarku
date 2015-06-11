@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for( user ) 
-    dashboard_url 
+    my_reimburse_url 
   end
 
  

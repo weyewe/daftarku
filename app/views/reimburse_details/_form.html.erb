@@ -29,6 +29,16 @@
 				</div>
 				 
 			</div>
+			<div class="form-group">
+				<%= f.label :website_url , :class => "col-sm-3 control-label" do %> 
+					Website?
+				<% end %>	
+
+				<div class="col-sm-7">
+					<%= f.text_field :website_url , :class => "form-control", :placeholder => "Alamat website (jika ada)" %>
+				</div>
+				 
+			</div>
 
 			<div class="form-group">
 				<%= f.label :description , :class => "col-sm-3 control-label" do %> 
@@ -36,28 +46,18 @@
 				<% end %>	
 
 				<div class="col-sm-7">
-					<%= f.text_field :description , :class => "form-control", 
+					<%= f.text_area :description , :class => "form-control", 
 					:placeholder => "Deskripsi reimburse" %>
 				</div>
 				 
 			</div>
 
-			<div class="form-group">
-				<%= f.label :amount , :class => "col-sm-3 control-label" do %> 
-					Biaya <span class="symbol required"></span>
-				<% end %>	
 
-				<div class="col-sm-7">
-					<%= f.text_field :amount , :class => "form-control", 
-					:placeholder => "Biaya expense" %>
-				</div>
-				 
-			</div>
 
 			<div class="form-group">
 				<%= f.label :original_main_image_url , 
 							:class => "col-sm-3 control-label"  do %> 
-					Gambar penunjang <span class="symbol required"></span>
+					Gambar <span class="symbol required"></span>
 				<% end %>	
 
 				<div class="col-sm-7">
