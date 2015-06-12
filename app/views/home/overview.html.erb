@@ -4,7 +4,7 @@
 <!-- start: PAGE HEADER -->
 <% @objects.each do |object| %>
 <div class="row" >
-    <div class="col-sm-12" style="text-align:center;">
+    <div class="col-sm-6 col-sm-offset-3" style="text-align:center;">
         
 
 <!--         <div class="core-box">
@@ -14,6 +14,7 @@
         <h2>
         	<%= link_to object.title , show_article_url(object.slug) %>
         </h2>
+        <%= image_tag object.medium_image_url %>
         <p><%= object.description %></p>
     </div>
     <%= render :partial => "layouts/dummy_breadcrumb" %>
