@@ -31,6 +31,13 @@
         		<%= reimburse_detail.description %>
         	</p>
 
+            <% if reimburse_detail.website_url.length != 0 %>
+            <p>
+                <%= link_to  "See More" , url_with_protocol( reimburse_detail.website_url )  ,  
+                        :class => "btn btn-success" ,:target => "_blank" %>
+            </p>
+            <% end %> 
+
             <% counter = counter + 1 %> 
        	<% end %> 
     </div>
